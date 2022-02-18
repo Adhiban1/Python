@@ -1,12 +1,8 @@
 import machine
 import utime
 
-# read ultrasonic
 
-Trig = machine.Pin(6,machine.Pin.OUT)   # Connect Trig pin to pin 6 and set to OUTPUT
-Echo = machine.Pin(8,machine.Pin.IN)    # Connect Echo pin to pin 7 and set to INPUT
-
-def read_ultrasonic(Trig, Echo):  # Read ultrasonic function
+def UltraSonic(Trig, Echo):  # Read ultrasonic function
     global pulse_start
     global pulse_end
     Trig.value(0)                       
@@ -26,6 +22,13 @@ def read_ultrasonic(Trig, Echo):  # Read ultrasonic function
 
     return distance
 
-while True:
-    print(read_ultrasonic(Trig, Echo))     # print ultrasonic distance
-    utime.sleep(1)               # sleep 1 second
+if __name__ == '__main__':
+
+    # read ultrasonic
+
+    Trig = machine.Pin(6,machine.Pin.OUT)   # Connect Trig pin to pin 6 and set to OUTPUT
+    Echo = machine.Pin(8,machine.Pin.IN)    # Connect Echo pin to pin 7 and set to INPUT
+
+    while True:
+        print(UltraSonic(Trig, Echo))     # print ultrasonic distance
+        utime.sleep(1)               # sleep 1 second
