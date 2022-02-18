@@ -1,0 +1,4 @@
+https://www.youtube.com/watch?v=WVZxK2MEbE4 , this link is about how to use Arduino using VS Code.
+
+blink.py - this will blink the built in LED in the Raspberry Pi Pico.
+servo.py - this will operate the servo motor.

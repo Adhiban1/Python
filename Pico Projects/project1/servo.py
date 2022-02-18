@@ -1,3 +1,6 @@
+# This program for Servo Motor
+# YouTube Link: https://www.youtube.com/watch?v=6qdrGwonmrM
+
 from machine import Pin, PWM
 from time import sleep_ms
 
