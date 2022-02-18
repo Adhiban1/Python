@@ -13,6 +13,8 @@ led2 = Pin(5, Pin.OUT)
 led3 = Pin(6, Pin.OUT)
 
 def ultra():
+  global signalon 
+  global signaloff
   trigger.low()
   utime.sleep_us(2)
   trigger.high()
@@ -22,7 +24,7 @@ def ultra():
     signaloff = utime.ticks_us()
   while echo.value()==1:
     signalon = utime.ticks_us()
-  timepassed = signalon-signaloff
+  timepassed = signalon - signaloff
   distance = (timepassed*0.0343)/2
   if distance<100:
     led.on()
