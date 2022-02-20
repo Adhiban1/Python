@@ -45,11 +45,14 @@ def move(p1, p2):
 def main(co_ord):
     move(co_ord[0][0], co_ord[0][1])
     move(co_ord[1][0], co_ord[1][1])
+    move(co_ord[2][0], co_ord[2][1])
 
 co_ord = [
-    [(0,1),(1.9,0.1)],
-    [(1.9,0.1),(np.sqrt(1.9),np.sqrt(1.9))]
+    [(0.01,1),(1.9,0.1)],
+    [(1.9,0.1),(np.sqrt(1.9),np.sqrt(1.9))],
+    [(np.sqrt(1.9),np.sqrt(1.9)),(0.01,1)]
 ]
 
-main(co_ord)
-plt.show()
+while True:
+    main(co_ord)
+# plt.show()
