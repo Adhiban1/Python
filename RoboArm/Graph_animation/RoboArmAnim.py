@@ -43,9 +43,8 @@ def move(p1, p2):
         print('***********  Invalid  **********')
 
 def main(co_ord):
-    move(co_ord[0][0], co_ord[0][1])
-    move(co_ord[1][0], co_ord[1][1])
-    move(co_ord[2][0], co_ord[2][1])
+    for i in co_ord:
+        move(i[0], i[1])
 
 co_ord = [
     [(0.01,1),(1.9,0.1)],
