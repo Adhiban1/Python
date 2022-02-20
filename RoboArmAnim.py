@@ -20,23 +20,27 @@ def arm(x,y):
         ax.plot([-3,3],[0,0], '--')
         # plt.show()
     else:
-        print('Out of Range')
+        print('********** Out of Range **********')
 
 
 def move(p1, p2):
     
     x = [p1[0],p2[0]]
     y = [p1[1],p2[1]]
-    l = np.linspace(x[0], x[1], 20)
-    m = (l-x[0])*(y[1]-y[0])/(x[1]-x[0])+y[0]
-    
-    for i,j in zip(l,m):
-        ax.cla()
-        ax.scatter(p2[0],p2[1], c='green')
-        arm(i,j)
-        # ax.set_title("frame {}".format(i)
-        # Note that using time.sleep does *not* work here!
-        plt.pause(0.01)
+
+    if (x[1]-x[0]) != 0:
+        l = np.linspace(x[0], x[1], 20)
+        m = (l-x[0])*(y[1]-y[0])/(x[1]-x[0])+y[0]
+        
+        for i,j in zip(l,m):
+            ax.cla()
+            ax.scatter(p2[0],p2[1], c='green')
+            arm(i,j)
+            # ax.set_title("frame {}".format(i)
+            # Note that using time.sleep does *not* work here!
+            plt.pause(0.01)
+    else:
+        print('***********  Invalid  **********')
 
 def main(co_ord):
     move(co_ord[0][0], co_ord[0][1])
