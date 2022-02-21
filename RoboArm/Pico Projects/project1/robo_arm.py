@@ -16,6 +16,39 @@ def point_to_anlge(point=(0, 1), length=1) -> tuple:
         return (150, 60)  # Default Value
 
 
+# 'degrees_to_duty' function converts our given degree into duty, then servo rotates at given angle.
+# min_duty and max_duty may vary for different servo.
+# You can change min_degrees and max_degrees as your wish.
+
+
+class degreesToDuty:
+    def __init__(self, min_duty=2500, max_duty=8050, min_degrees=0, max_degrees=180):
+        self.min_duty = min_duty
+        self.max_duty = max_duty
+        self.min_degrees = min_degrees
+        self.max_degrees = max_degrees
+
+    def degrees_to_duty(self, degrees):
+        # increment value per degree
+        duty_step = (self.max_duty - self.min_duty) / self.max_degrees
+
+        if degrees > self.max_degrees:
+            degrees = self.max_degrees
+        elif degrees < self.min_degrees:
+            degrees = self.min_degrees
+
+        # Get the duty value for the degrees
+        duty = math.floor((duty_step * degrees) + self.min_duty)
+
+        # Check value not out of bounds
+        if duty > self.max_duty:
+            duty = self.max_duty
+        elif duty < self.min_duty:
+            duty = self.min_duty
+
+        return duty
+
+
 def main():
     Angle1, Angle2 = point_to_anlge((1, 1), 1)
     print(f"Angle1 is {int(Angle1)} and Angle2 is {int(Angle2)}")
